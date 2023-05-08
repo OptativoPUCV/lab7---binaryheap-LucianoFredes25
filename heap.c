@@ -4,6 +4,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "heap.h"
+#include <stdbool.h>
 
 typedef struct nodo{
    void* data;
@@ -38,7 +39,10 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->heapArray[pq->size].data = data;
   pq->heapArray[pq->size].priority = priority;
   pq->size++;
-  
+
+  while(true){
+    return NULL;
+  }
 }
 
 
