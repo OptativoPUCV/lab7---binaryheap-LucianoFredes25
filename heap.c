@@ -40,6 +40,8 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->heapArray[pq->size].priority = priority;
   pq->size++;
 
+  int numero = (1 / 2);
+  printf("%d",numero);
   while(true){
     break;
   }
