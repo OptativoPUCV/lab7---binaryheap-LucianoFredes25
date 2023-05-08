@@ -17,10 +17,12 @@ typedef struct Heap{
 } Heap;
 
 
-void* heap_top(Heap* pq){  
-  void * first = pq->heapArray[0].data;
-  if(first == NULL)
+void* heap_top(Heap* pq){ 
+  if(pq->size == 0)
     return NULL;
+  
+  void * first = pq->heapArray[0].data;
+  
   return first;
 }
 
