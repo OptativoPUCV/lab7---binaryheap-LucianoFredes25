@@ -30,6 +30,9 @@ void* heap_top(Heap* pq){
 
 
 void heap_push(Heap* pq, void* data, int priority){
+  void * auxData;
+  int auxPrio;
+  
   if(pq->size == pq->capac){
     pq->capac *= 2;
     pq->capac += 1;
@@ -53,8 +56,13 @@ void heap_push(Heap* pq, void* data, int priority){
       break;
     else
     {
-      printf("no es");
-      break;
+      auxData = pq->heapArray[padre].data;
+      auxPrio = pq->heapArray[padre].priority;
+      pq->heapArray[padre].data = pq->heapArray[posActual].data;
+      pq->heapArray[padre].priority = pq->heapArray[posActual].priority;
+      pq->heapArray[posActual].data = auxData;
+      pq->heapArray[posActual].priority = auxPrio;
+      posActual = padre;
     }
   }
 }
