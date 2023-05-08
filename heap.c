@@ -43,14 +43,19 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->size++;
   
   while(true){
-
+    //posicion del padre 
     if(posActual % 2 == 0)
       padre = posActual / 2 - 1;
     else
       padre = posActual / 2;
 
-    printf("%d", pq->heapArray[padre].priority);
-    break;
+    if(pq->heapArray[padre].priority > pq->heapArray[posActual].priority)
+      break;
+    else
+    {
+      printf("no es");
+      break;
+    }
   }
 }
 
