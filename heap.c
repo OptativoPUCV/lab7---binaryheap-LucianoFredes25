@@ -41,7 +41,7 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->size++;
 
   while(true){
-    return NULL;
+    break;
   }
 }
 
