@@ -33,6 +33,9 @@ void heap_pop(Heap* pq){
 }
 
 Heap* createHeap(){
-
-   return NULL;
+  Heap * aux = (Heap *) malloc(sizeof(Heap *));
+  aux->heapArray = malloc(sizeof(void *) * 3);
+  aux->capac = 3;
+  aux->size = 0;
+  return aux;
 }
