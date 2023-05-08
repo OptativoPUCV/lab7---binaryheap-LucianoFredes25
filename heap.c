@@ -31,37 +31,44 @@ void* heap_top(Heap* pq){
 
 void heap_push(Heap* pq, void* data, int priority){
   void * auxData;
-  int auxPrio;
-  
+  int auxPrio , padre , posActual = pq->size;
+
+  //aumento capacidad
   if(pq->size == pq->capac){
     pq->capac *= 2;
     pq->capac += 1;
     pq = realloc(pq , pq->capac);
   }
 
-  int padre , posActual = pq->size;
-  
+  //insertar el nuevo nodo
   pq->heapArray[pq->size].data = data;
   pq->heapArray[pq->size].priority = priority;
   pq->size++;
   
   while(true){
+    
     //posicion del padre 
     if(posActual % 2 == 0)
       padre = posActual / 2 - 1;
     else
       padre = posActual / 2;
-
+    
+    //correctamente posicionado
     if(pq->heapArray[padre].priority > pq->heapArray[posActual].priority)
       break;
+      
+    //cambio de posicion
     else
     {
       auxData = pq->heapArray[padre].data;
       auxPrio = pq->heapArray[padre].priority;
+      
       pq->heapArray[padre].data = pq->heapArray[posActual].data;
       pq->heapArray[padre].priority = pq->heapArray[posActual].priority;
+      
       pq->heapArray[posActual].data = auxData;
       pq->heapArray[posActual].priority = auxPrio;
+      
       posActual = padre;
     }
   }
