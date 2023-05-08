@@ -35,14 +35,21 @@ void heap_push(Heap* pq, void* data, int priority){
     pq->capac += 1;
     pq = realloc(pq , pq->capac);
   }
+
+  int padre , posActual = pq->size;
   
   pq->heapArray[pq->size].data = data;
   pq->heapArray[pq->size].priority = priority;
   pq->size++;
-
-  int numero = (5 / 2);
-  printf("%d",numero);
+  
   while(true){
+
+    if(posActual % 2 == 0)
+      padre = posActual / 2 - 1;
+    else
+      padre = posActual / 2;
+
+    printf("%d", padre);
     break;
   }
 }
