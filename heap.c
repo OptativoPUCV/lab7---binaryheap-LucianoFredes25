@@ -49,7 +49,7 @@ void heap_push(Heap* pq, void* data, int priority){
     else
       padre = posActual / 2;
 
-    printf("%d", padre);
+    printf("%d", pq->heapArray[padre].priority);
     break;
   }
 }
