@@ -46,7 +46,8 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->size++;
   
   while(true){
-    
+    if(posActual == 0)
+      break;
     //posicion del padre 
     if(posActual % 2 == 0)
       padre = posActual / 2 - 1;
