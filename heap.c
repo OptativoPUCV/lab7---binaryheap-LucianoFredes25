@@ -77,7 +77,41 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
+  int pos = 0 , auxPrio;
+  void * auxData;
+  
+  pq->heapArray[pos].data = pq->heapArray[pq->size].data;
+  pq->heapArray[pos].priority = pq->heapArray[pq->size].priority;
+  pq->size--;
+  
+  while(true){
+    int hijoIzq = pq->heapArray[2 * pos + 1].priority;
+    int hijoDer = pq->heapArray[2 * pos + 2].priority;
 
+    auxData = pq->heapArray[pos].data;
+    auxPrio = pq->heapArray[pos].priority;
+    
+    if(pq->heapArray[pos].priority > hijoIzq && pq->heapArray[pos].priority > hijoDer)
+      break;
+    
+    /*if(hijoIzq > pq->heapArray[pos].priority){
+      pq->heapArray[pos].data = pq->heapArray[2 * pos + 1].data;
+      pq->heapArray[pos].priority = hijoIzq;
+      pq->heapArray[2 * pos + 1].data = auxData;
+      pq->heapArray[2 * pos + 1].priority = auxPrio;
+      pos = 2*pos+1;
+    }
+    else if (hijoDer > pq->heapArray[pos].priority){
+      pq->heapArray[pos].data = pq->heapArray[2 * pos + 2].data;
+      pq->heapArray[pos].priority = hijoDer;
+      pq->heapArray[2 * pos + 2].data = auxData;
+      pq->heapArray[2 * pos + 2].priority = auxPrio;
+      pos = 2*pos+2;
+    }
+    */
+    
+  }
+    
 }
 
 Heap* createHeap(){
