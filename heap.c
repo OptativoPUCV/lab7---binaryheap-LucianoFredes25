@@ -98,20 +98,21 @@ void heap_pop(Heap* pq){
     if(pq->heapArray[pos].priority > hijoIzq && pq->heapArray[pos].priority > hijoDer)
       break;
     
-    if(hijoIzq > pq->heapArray[pos].priority){
-      pq->heapArray[pos].data = pq->heapArray[2 * pos + 1].data;
-      pq->heapArray[pos].priority = hijoIzq;
-      pq->heapArray[2 * pos + 1].data = auxData;
-      pq->heapArray[2 * pos + 1].priority = auxPrio;
-      pos = 2*pos+1;
-    }
-    else if (hijoDer > pq->heapArray[pos].priority){
+    if (hijoDer > pq->heapArray[pos].priority){
       pq->heapArray[pos].data = pq->heapArray[2 * pos + 2].data;
       pq->heapArray[pos].priority = hijoDer;
       pq->heapArray[2 * pos + 2].data = auxData;
       pq->heapArray[2 * pos + 2].priority = auxPrio;
       pos = 2*pos+2;
     }
+    else if(hijoIzq > pq->heapArray[pos].priority){
+      pq->heapArray[pos].data = pq->heapArray[2 * pos + 1].data;
+      pq->heapArray[pos].priority = hijoIzq;
+      pq->heapArray[2 * pos + 1].data = auxData;
+      pq->heapArray[2 * pos + 1].priority = auxPrio;
+      pos = 2*pos+1;
+    }
+    
 
     for(int i = 0 ; i < pq->size ; i++)
       printf("%d ", pq->heapArray[i].priority);
