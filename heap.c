@@ -96,13 +96,12 @@ void heap_pop(Heap* pq){
       mayor = hijoDer;
       posMayor = pos * 2 + 2;
     }
-      
     else{
       mayor = hijoIzq;
       posMayor = pos * 2 + 1;
     }    
 
-    printf("%d\n", posMayor);
+    printf("%d - %d\n", pos , posMayor);
     
     auxData = pq->heapArray[pos].data;
     auxPrio = pq->heapArray[pos].priority;
