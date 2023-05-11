@@ -117,6 +117,7 @@ void heap_pop(Heap* pq){
       pq->heapArray[posMayor].data = auxData;
       pq->heapArray[posMayor].priority = auxPrio;
       pos = posMayor;
+      break;
     }
 
     for(int i = 0 ; i < pq->size ; i++)
