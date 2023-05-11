@@ -226,3 +226,17 @@ heap.c:80:17: error: variable ‘auxPrio’ set but not used [-Werror=unused-but
 cc1: all warnings being treated as errors
 Compilation failed
 d3ada01
+Thu 11 May 2023 04:38:15 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:81:10: error: unused variable ‘auxData’ [-Werror=unused-variable]
+   81 |   void * auxData;
+      |          ^~~~~~~
+heap.c:80:17: error: unused variable ‘auxPrio’ [-Werror=unused-variable]
+   80 |   int pos = 0 , auxPrio;
+      |                 ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+693d6c8
