@@ -108,6 +108,7 @@ void heap_pop(Heap* pq){
     if(pq->heapArray[pos].priority > mayor)
       break;
     else{
+      printf("entro al else\n");
       pq->heapArray[pos].data = pq->heapArray[posMayor].data;
       pq->heapArray[pos].priority = pq->heapArray[posMayor].priority;
       pq->heapArray[posMayor].data = auxData;
