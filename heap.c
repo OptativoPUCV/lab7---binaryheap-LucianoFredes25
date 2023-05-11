@@ -77,8 +77,8 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
-  int pos = 0;// auxPrio;
-  //void * auxData;
+  int pos = 0 , auxPrio;
+  void * auxData;
   
   pq->heapArray[pos].data = pq->heapArray[pq->size].data;
   pq->heapArray[pos].priority = pq->heapArray[pq->size].priority;
@@ -88,13 +88,13 @@ void heap_pop(Heap* pq){
     int hijoIzq = pq->heapArray[2 * pos + 1].priority;
     int hijoDer = pq->heapArray[2 * pos + 2].priority;
 
-    //auxData = pq->heapArray[pos].data;
-    //auxPrio = pq->heapArray[pos].priority;
+    auxData = pq->heapArray[pos].data;
+    auxPrio = pq->heapArray[pos].priority;
     break;
     if(pq->heapArray[pos].priority > hijoIzq && pq->heapArray[pos].priority > hijoDer)
       break;
     
-    /*if(hijoIzq > pq->heapArray[pos].priority){
+    if(hijoIzq > pq->heapArray[pos].priority){
       pq->heapArray[pos].data = pq->heapArray[2 * pos + 1].data;
       pq->heapArray[pos].priority = hijoIzq;
       pq->heapArray[2 * pos + 1].data = auxData;
@@ -108,8 +108,8 @@ void heap_pop(Heap* pq){
       pq->heapArray[2 * pos + 2].priority = auxPrio;
       pos = 2*pos+2;
     }
-    */
     
+    break;    
   }
     
 }
