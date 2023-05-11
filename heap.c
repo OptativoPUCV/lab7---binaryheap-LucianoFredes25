@@ -101,7 +101,7 @@ void heap_pop(Heap* pq){
       posMayor = pos * 2 + 1;
     }    
 
-    printf("%d - %d\n", pos , posMayor);
+    printf("%d - %d - %d\n", pos , pq->size , posMayor);
     
     auxData = pq->heapArray[pos].data;
     auxPrio = pq->heapArray[pos].priority;
