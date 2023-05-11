@@ -77,7 +77,7 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
-  int pos = 0 , auxPrio;
+  int pos = 0 , auxPrio , mayor , posMayor;
   void * auxData;
 
   pq->heapArray[pos].data = pq->heapArray[pq->size-1].data;
@@ -92,33 +92,33 @@ void heap_pop(Heap* pq){
     int hijoIzq = pq->heapArray[2 * pos + 1].priority;
     int hijoDer = pq->heapArray[2 * pos + 2].priority;
 
+    if(hijoDer > hijoIzq){
+      mayor = hijoDer;
+      posMayor = pos * 2 + 2;
+    }
+      
+    else{
+      mayor = hijoIzq;
+      posMayor = pos * 2 + 1;
+    }    
+    
     auxData = pq->heapArray[pos].data;
     auxPrio = pq->heapArray[pos].priority;
     
-    if(pq->heapArray[pos].priority > hijoIzq && pq->heapArray[pos].priority > hijoDer)
+    if(pq->heapArray[pos].priority > mayor)
       break;
-    
-    if (hijoDer > pq->heapArray[pos].priority){
-      pq->heapArray[pos].data = pq->heapArray[2 * pos + 2].data;
-      pq->heapArray[pos].priority = hijoDer;
-      pq->heapArray[2 * pos + 2].data = auxData;
-      pq->heapArray[2 * pos + 2].priority = auxPrio;
-      pos = 2*pos+2;
+    else{
+      pq->heapArray[pos].data = pq->heapArray[posMayor].data;
+      pq->heapArray[pos].priority = pq->heapArray[posMayor].priority;
+      pq->heapArray[posMayor].data = auxData;
+      pq->heapArray[posMayor].priority = auxPrio;
+      pos = posMayor;
     }
-    else if(hijoIzq > pq->heapArray[pos].priority){
-      pq->heapArray[pos].data = pq->heapArray[2 * pos + 1].data;
-      pq->heapArray[pos].priority = hijoIzq;
-      pq->heapArray[2 * pos + 1].data = auxData;
-      pq->heapArray[2 * pos + 1].priority = auxPrio;
-      pos = 2*pos+1;
-    }
-    
 
     for(int i = 0 ; i < pq->size ; i++)
       printf("%d ", pq->heapArray[i].priority);
     printf("\n");
     
-    //break;
   }
     
 }
