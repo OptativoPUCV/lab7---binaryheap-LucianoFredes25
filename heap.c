@@ -86,6 +86,10 @@ void heap_pop(Heap* pq){
   pq->heapArray[pos].data = pq->heapArray[pq->size].data;
   pq->heapArray[pos].priority = pq->heapArray[pq->size].priority;
   pq->size--;
+
+  for(int i = 0 ; i < pq->size ; i++)
+    printf("%d ", pq->heapArray[i].priority);
+  printf("\n");
   
   while(true){
     int hijoIzq = pq->heapArray[2 * pos + 1].priority;
