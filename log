@@ -263,3 +263,18 @@ heap.c:83:31: error: expected ‘;’ before ‘)’ token
       |                               ;
 Compilation failed
 efc5b7f
+Thu 11 May 2023 04:41:33 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:83:32: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+   83 |   for(int i = 0 ; i < pq->size , i++)
+      |                                ^
+heap.c:83:37: error: expected ‘;’ before ‘)’ token
+   83 |   for(int i = 0 ; i < pq->size , i++)
+      |                                     ^
+      |                                     ;
+cc1: all warnings being treated as errors
+Compilation failed
+81241ed
